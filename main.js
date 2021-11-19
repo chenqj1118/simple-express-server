@@ -5,11 +5,6 @@ const bodyParser = require('body-parser');
 const history = require('connect-history-api-fallback');
 const router = require('./router/index')  //  引入路由
 
-const globalConfig = require('./globalConfig');
-const utilts = require('./router/utils');
-const fs = require('fs');
-!fs.existsSync(globalConfig.rootPath) && utilts.mkdirsSync(globalConfig.rootPath); // 如果rootPath目录不存在，则创建目录
-
 // body-parser application/json解析 extended:false 不使用第三方模块处理参数，使用Nodejs内置模块querystring处理
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json()) //application/x-www-form-urlencoded解析
